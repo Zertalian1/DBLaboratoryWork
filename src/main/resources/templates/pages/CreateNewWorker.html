@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>login</title>
+    <link media="all" rel="stylesheet" th:href="@{/style/SecurityPageStyle.css}" type="text/css"/>
+</head>
+<body>
+<main id="main-holder">
+    <h1 id="header">Registration</h1>
+    <form th:action="@{/newWorker}" th:method="POST" th:object="${workerDto}">
+        <input type="email" name="email" id="email-field" class="form-field" placeholder="EMail" th:field="*{user.email}">
+        <input type="password" name="password" id="password-field" class="form-field" placeholder="Password" th:field="*{user.password}">
+        <input type="text" required class="form-field" placeholder="first name" th:field="*{worker.firstName}">
+        <input type="text" required class="form-field" placeholder="last name" th:field="*{worker.lastName}">
+        <input type="date" required class="form-field" th:field="*{worker.dateOfBirth}">
+        <input type="number" required class="form-field" th:field="*{worker.salary}">
+        <select th:field="*{worker.post}">
+            <option th:each="state : ${T(com.example.dblaboratorywork.enums.Post).values()}"
+                    th:value="${state}"
+                    th:text="${state}">
+            </option>
+        </select>
+        <input type="submit" value="Registration" id="form-submit">
+    </form>
+</main>
+</body>
+</html>

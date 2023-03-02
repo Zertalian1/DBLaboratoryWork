@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>sign-in</title>
+    <link media="all" rel="stylesheet" th:href="@{style/SecurityPageStyle.css}" type="text/css"/>
+    <script src="https://unpkg.com/htmx.org@1.8.5" integrity="sha384-7aHh9lqPYGYZ7sTHvzP1t3BAfLhYSTy9ArHdP3Xsr9/3TlGurYgcPBoFmXX2TX/w" crossorigin="anonymous"></script>
+</head>
+<body>
+<main id="main-holder">
+    <h1 id="header">Login</h1>
+<form th:action="@{/login}" th:method="POST" th:object="${user}">
+    <input type="email" name="username" id="username" class="form-field" placeholder="email" >
+    <input type="password" name="password" id="password" class="form-field" placeholder="password">
+    <input type="submit" value="Login" id="form-submit">
+</form>
+    <div id="link">
+        <span>New user? <a th:href="@{/registration}">Register here</a></span>
+    </div>
+</main>
+</body>
+</html>
